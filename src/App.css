@@ -1,0 +1,186 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  /* background-image: url("https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+  background: linear-gradient(135deg, hsl(204, 96%, 70%), #d3d3d3); /*Sky blue to soft gray */
+  background-repeat: no-repeat;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  background-color: transparent; /* No background color */
+  color: #ffffff; /* White text color */
+  padding: 20px 0;
+  text-align: center; /* Centered text */
+  font-size: 1.5rem;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px; /* Ensures max width of the main container */
+}
+
+/* Weather Container and Forecast Container */
+.weather-container, .forecast-container {
+
+  background: rgba(93, 140, 201, 0.9); /* Slightly transparent white */
+  background-image: url("https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); 
+  padding: 20px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  margin: 20px 0; /* Margin on top and bottom */
+  width: 100%;
+  /* box-sizing: border-box; */
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%; /* Full width for search box */
+}
+
+.search-box input {
+  padding: 12px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ccc;
+  flex: 1;
+  font-size: 1rem;
+  background-color: #e0f7fa; /* Light cyan */
+  color: #333;
+  
+}
+
+.search-box button {
+  padding: 12px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #1512da; /* Amber */
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Weather Info and Forecast Item */
+.weather-info, .forecast-item {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp p {
+  font-size: 1rem; /* Larger temperature text */
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+.description {
+  text-transform: capitalize;
+  font-size: 1.2rem; /* Slightly larger description text */
+  margin-top: 5px;
+  color: #ad0a8a; /* Teal */
+}
+
+/* Forecast Container */
+.forecast-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust grid columns */
+  gap: 15px; /* Larger gap between items */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  header {
+      font-size: 1.25rem; /* Adjust header font size */
+  }
+  .weather-container, .forecast-container{
+    max-width: 90%;
+    margin-left: 10px;
+  }
+  .main-container {
+      max-width: 90vw; /* Reduce max width on smaller screens */
+  }
+
+  .search-box {
+      flex-direction: column;
+  }
+
+  .search-box input {
+      width: 95%; /* Full width on small screens */
+      margin-bottom: 10px; /* Margin between input and button */
+      
+  }
+
+  .search-box button {
+      width: 100%; /* Full width button on small screens */
+  }
+
+  .temp p {
+      font-size: 1.5rem; /* Adjust temperature text size */
+  }
+
+  .description {
+      font-size: 1rem; /* Adjust description text size */
+  }
+  .forecast-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust grid columns */
+    gap: 15px; /* Larger gap between items */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+      font-size: 1rem; /* Smaller header font size */
+  }
+  .weather-container, .forecast-container{
+    max-width: 90%;
+    margin-left: 10px;
+  }
+
+  .temp p {
+      font-size: 1.25rem; /* Smaller temperature text size */
+  }
+
+  .description {
+      font-size: 0.9rem; /* Smaller description text size */
+  }
+  .forecast-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust grid columns */
+    gap: 15px; /* Larger gap between items */
+  }
+
+  footer {
+      font-size: 0.8rem; /* Smaller footer text */
+  }
+}
