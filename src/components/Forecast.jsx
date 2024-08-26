@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+
 const Forecast = ({ apiKey }) => {
     const [city, setCity] = useState('');
     const [forecastData, setForecastData] = useState([]);
@@ -14,6 +14,7 @@ const Forecast = ({ apiKey }) => {
 
     return (
         <div className="forecast-container">
+            <h2>5-Day Weather Forecast</h2> {/* Heading for 5-Day Forecast */}
             <div className="search-box">
                 <input 
                     type="text" 
@@ -46,10 +47,7 @@ const Forecast = ({ apiKey }) => {
 };
 
 Forecast.propTypes = {
-    date: PropTypes.string.isRequired, // Date must be a string and is required
-    temperature: PropTypes.number.isRequired, // Temperature must be a number and is required
-    description: PropTypes.string.isRequired, // Description must be a string and is required
-    icon: PropTypes.string.isRequired // Icon code must be a string and is required
+    apiKey: PropTypes.string.isRequired // API key must be a string and is required
 };
 
 export default Forecast;

@@ -16,6 +16,7 @@ const Weather = ({ apiKey }) => {
 
     return (
         <div className="weather-container">
+            <h2>Current Weather</h2> {/* Heading for Current Weather */}
             <div className="search-box">
                 <input 
                     type="text" 
@@ -30,7 +31,7 @@ const Weather = ({ apiKey }) => {
 
             {weatherData && (
                 <div className="weather-info">
-                    <h2>{weatherData.name}</h2>
+                    <h3>{weatherData.name}</h3>
                     <div className="temp">
                         <p>{weatherData.main.temp}°C</p>
                         <img 
