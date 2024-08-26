@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
+
 const Forecast = ({ apiKey }) => {
     const [city, setCity] = useState('');
     const [forecastData, setForecastData] = useState([]);
@@ -9,8 +10,11 @@ const Forecast = ({ apiKey }) => {
     const handleSearch = () => {
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`)
             .then(response => response.json())
-            .then(data => setForecastData(data.list.filter((_, index) => index % 8 === 0))) // Filter to get one forecast per day
-            // .catch(error => alert('City not found!'));
+            .then(data => {
+                const filteredData = data.list.filter((_, index) => index % 8 === 0);
+                setForecastData(filteredData);
+            })
+            .catch(error => console.error('Error fetching data:', error));
     };
 
     const handleToggleDetails = (index) => {
@@ -19,7 +23,7 @@ const Forecast = ({ apiKey }) => {
 
     return (
         <div className="forecast-container">
-            <h2>Next 5-Days Weather Forecast</h2> 
+            <h2>Next 5-Day Forecast</h2>
             <div className="search-box">
                 <input 
                     type="text" 
@@ -67,7 +71,3 @@ Forecast.propTypes = {
 };
 
 export default Forecast;
-
-
-
-

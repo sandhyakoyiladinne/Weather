@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Centering the login container */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background: linear-gradient(135deg, #4a90e2, #50e3c2); /* Gradient background */
+  }
+  
+  .login-box {
+    /* background: #f7b3d5; */
+    background: linear-gradient(135deg, #e24ace, #5077e3);
+    border-radius: 10px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+  }
+  
+  .login-box:hover {
+    transform: scale(1.05);
+  }
+  
+  .login-box h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .login-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-box label {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+  }
+  
+  .login-box input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 20px; /* Added margin for spacing between fields */
+  }
+  
+  .login-box button {
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-box button:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-box p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .login-box p button {
+    background: none;
+    border: none;
+    color: #c4280d;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .login-box p button:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  
