@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Forecast = ({ apiKey }) => {
     const [city, setCity] = useState('');
     const [forecastData, setForecastData] = useState([]);
+    const [activeIndex, setActiveIndex] = useState(null); // To track which date is active
 
     const handleSearch = () => {
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`)
@@ -12,9 +13,13 @@ const Forecast = ({ apiKey }) => {
             // .catch(error => alert('City not found!'));
     };
 
+    const handleToggleDetails = (index) => {
+        setActiveIndex(activeIndex === index ? null : index); // Toggle the active index
+    };
+
     return (
         <div className="forecast-container">
-            <h2>5-Day Weather Forecast</h2> {/* Heading for 5-Day Forecast */}
+            <h2>Next 5-Days Weather Forecast</h2> 
             <div className="search-box">
                 <input 
                     type="text" 
@@ -29,7 +34,9 @@ const Forecast = ({ apiKey }) => {
                 <div className="forecast-list">
                     {forecastData.map((forecast, index) => (
                         <div key={index} className="forecast-item">
-                            <h3>{new Date(forecast.dt_txt).toDateString()}</h3>
+                            <h3 onClick={() => handleToggleDetails(index)}>
+                                {new Date(forecast.dt_txt).toDateString()}
+                            </h3>
                             <div className="temp">
                                 <p>{forecast.main.temp}°C</p>
                                 <img 
@@ -38,6 +45,15 @@ const Forecast = ({ apiKey }) => {
                                 />
                             </div>
                             <p className="description">{forecast.weather[0].description}</p>
+                            
+                            {activeIndex === index && (
+                                <div className="additional-info">
+                                    <p>Humidity: {forecast.main.humidity}%</p>
+                                    <p>Wind Speed: {forecast.wind.speed} m/s</p>
+                                    <p>Pressure: {forecast.main.pressure} hPa</p>
+                                    <p>Feels Like: {forecast.main.feels_like}°C</p>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -51,3 +67,7 @@ Forecast.propTypes = {
 };
 
 export default Forecast;
+
+
+
+
